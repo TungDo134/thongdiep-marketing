@@ -15,25 +15,32 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: #f8f9fa;
+        background: url("../random_thongdiep/kdd.jpg") no-repeat center
+          center/cover;
         text-align: center;
+      }
+      .message-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
       }
       .message {
         font-size: 2rem;
         font-weight: bold;
-        color: #007bff;
+        color: #fff;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
         opacity: 0;
         transition: opacity 1.5s ease-in-out;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="message" id="message">Hello, World!</div>
-        </div>
-      </div>
+    <div class="message-container">
+      <div class="message" id="message">Hello, World!</div>
     </div>
 
     <script>
@@ -50,8 +57,6 @@
           messages[Math.floor(Math.random() * messages.length)];
         const messageElement = document.getElementById("message");
         messageElement.textContent = randomMessage;
-
-        console.log(Math.floor(Math.random() * messages.length));
 
         setTimeout(() => {
           messageElement.style.opacity = 1;
