@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Random Message</title>
+    <title>Random Message & Image</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -15,8 +15,10 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background: url("./kdd.jpg") no-repeat center center/cover;
+        background-size: cover;
+        background-position: center;
         text-align: center;
+        transition: background 1s ease-in-out;
       }
       .message-container {
         position: absolute;
@@ -52,13 +54,17 @@
           "Mỗi ngày là một cơ hội mới!",
         ];
 
+        const images = ["kdd.jpg", "capy.jpg"];
+
         const randomMessage =
           messages[Math.floor(Math.random() * messages.length)];
-        const messageElement = document.getElementById("message");
-        messageElement.textContent = randomMessage;
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+
+        document.getElementById("message").textContent = randomMessage;
+        document.body.style.backgroundImage = `url(${randomImage})`;
 
         setTimeout(() => {
-          messageElement.style.opacity = 1;
+          document.getElementById("message").style.opacity = 1;
         }, 500);
       });
     </script>
